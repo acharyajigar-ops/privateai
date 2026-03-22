@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrivateAI — US | Compliant AI for Regulated Professionals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAFAFA;--white:#FFFFFF;--surface:#F5F5F3;--surface2:#EEEEEC;
+  --blue:#6D28D9;--blue2:#5B21B6;--blue-light:#F5F3FF;--blue-mid:#EDE9FE;
+  --ink:#0F0A1E;--slate:#3D3557;--muted:#6B6685;--hint:#9CA3AF;
+  --border:#E4E4E7;--border2:#C4C4CC;
+  --green:#059669;--green-bg:#ECFDF5;
+  --red:#DC2626;--red-bg:#FEF2F2;
+  --radius:8px;--radius-lg:12px;--radius-xl:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);overflow-x:hidden;line-height:1.6}
+
+.rbar{background:var(--blue);padding:9px 64px;display:flex;align-items:center;gap:12px}
+.rbar-left{display:flex;align-items:center;gap:10px}
+.rbar-flag{font-size:16px}
+.rbar-text{font-size:11px;font-weight:600;letter-spacing:.06em;color:rgba(255,255,255,.9)}
+.rbar-regs{display:flex;gap:6px;margin-left:4px}
+.rbar-reg{font-size:10px;font-weight:600;background:rgba(255,255,255,.15);color:#fff;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
+.rbar-right{margin-left:auto;display:flex;gap:8px}
+.rbar-link{font-size:10px;font-weight:600;color:rgba(255,255,255,.65);text-decoration:none;border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:3px;transition:all .2s}
+.rbar-link:hover{background:rgba(255,255,255,.15);color:#fff}
+
+nav{position:fixed;top:38px;left:0;right:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 64px;height:60px;display:flex;align-items:center;justify-content:space-between;transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 1px 20px rgba(15,10,30,.08)}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink)}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-ghost{font-size:13px;font-weight:500;color:var(--blue);text-decoration:none}
+.nav-btn{font-size:13px;font-weight:600;color:#fff;background:var(--blue);padding:9px 22px;border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.nav-btn:hover{background:var(--blue2);transform:translateY(-1px)}
+
+.hero{padding:120px 64px 80px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;background:var(--white);border-bottom:1px solid var(--border)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);background:var(--blue-light);padding:6px 14px;border-radius:20px;margin-bottom:28px}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:700;line-height:1.1;color:var(--ink);margin-bottom:24px;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero-sub{font-size:17px;font-weight:300;line-height:1.8;color:var(--slate);max-width:480px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:40px}
+.btn-primary{font-size:15px;font-weight:600;color:#fff;background:var(--blue);padding:14px 32px;border-radius:var(--radius);text-decoration:none;transition:all .2s;box-shadow:0 1px 3px rgba(109,40,217,.25)}
+.btn-primary:hover{background:var(--blue2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(109,40,217,.3)}
+.btn-secondary{font-size:15px;font-weight:500;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:6px}
+.btn-secondary:hover{gap:10px}
+.hero-trust{display:flex;gap:10px;flex-wrap:wrap}
+.trust-badge{font-size:11px;font-weight:600;letter-spacing:.04em;background:var(--surface);color:var(--slate);padding:5px 12px;border-radius:20px;border:1px solid var(--border)}
+
+.hcard{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:28px;box-shadow:0 4px 24px rgba(15,10,30,.06)}
+.hcard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.hcard-title{font-size:14px;font-weight:600;color:var(--ink)}
+.hcard-status{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;color:var(--green)}
+.hcard-led{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.flow-row{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--border)}
+.flow-row:last-of-type{border-bottom:none}
+.flow-icon{width:36px;height:36px;border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.fi-safe{background:var(--green-bg);border:1px solid #A7F3D0}
+.fi-block{background:var(--red-bg);border:1px solid #FECACA}
+.flow-info{flex:1}
+.flow-name{font-size:13px;font-weight:600;color:var(--ink)}
+.flow-desc{font-size:11px;color:var(--muted)}
+.pill{font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.pill-safe{background:var(--green-bg);color:#065F46}
+.pill-block{background:var(--red-bg);color:#991B1B}
+.hcard-foot{margin-top:16px;padding:12px 16px;background:var(--blue-light);border-radius:var(--radius);border:1px solid var(--blue-mid);font-size:12px;font-weight:600;color:var(--blue);text-align:center}
+
+.ticker{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:12px 0;overflow:hidden;background:var(--surface)}
+.ticker-track{display:flex;gap:48px;width:max-content;animation:scroll 28s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap;display:flex;align-items:center;gap:10px}
+.ticker-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.5}
+
+section{position:relative}
+.lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);font-weight:700;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin-bottom:18px}
+.h2 em{font-style:italic;color:var(--blue)}
+.sub{font-size:16px;font-weight:300;line-height:1.8;color:var(--slate);max-width:580px}
+
+.problem{padding:100px 64px;background:var(--white)}
+.pwrap{display:grid;grid-template-columns:5fr 7fr;gap:80px;align-items:start}
+.pcards{display:flex;flex-direction:column}
+.pc{padding:24px 28px;border-bottom:1px solid var(--border);transition:background .2s;cursor:default}
+.pc:first-child{border-top:1px solid var(--border)}
+.pc:hover{background:var(--blue-light)}
+.pc-num{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.pc h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.pc p{font-size:13px;color:var(--muted);line-height:1.72}
+
+.how{padding:100px 64px;background:var(--surface)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.step{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px 28px;transition:box-shadow .2s}
+.step:hover{box-shadow:0 8px 32px rgba(15,10,30,.08)}
+.step-num{width:36px;height:36px;border-radius:var(--radius);background:var(--blue-light);border:1px solid var(--blue-mid);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--blue);margin-bottom:20px}
+.step h3{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:10px}
+.step p{font-size:13px;color:var(--muted);line-height:1.75}
+.step-tag{display:inline-block;margin-top:16px;font-size:11px;font-weight:600;color:var(--blue);background:var(--blue-light);padding:4px 10px;border-radius:20px}
+
+.compliance{padding:100px 64px;background:var(--white)}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.cc{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px;transition:box-shadow .2s,border-color .2s;cursor:default}
+.cc:hover{box-shadow:0 8px 28px rgba(15,10,30,.07);border-color:var(--blue-mid)}
+.cc-icon{font-size:22px;margin-bottom:14px}
+.cc h3{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.cc p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.rp{display:flex;flex-wrap:wrap;gap:6px}
+.rp span{font-size:10px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:20px;background:var(--blue-light);color:var(--blue)}
+.rp span.g{background:var(--green-bg);color:#065F46}
+
+.pricing{padding:100px 64px;background:var(--surface)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px}
+.plan{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-xl);padding:36px 28px;transition:box-shadow .2s}
+.plan:hover{box-shadow:0 8px 32px rgba(15,10,30,.08)}
+.plan.star{border:2px solid var(--blue);position:relative}
+.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;letter-spacing:.06em;background:var(--blue);color:#fff;padding:4px 14px;border-radius:20px;white-space:nowrap}
+.plan-name{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.plan-name.b{color:var(--blue)}
+.price{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--ink);line-height:1;margin-bottom:4px}
+.price sup{font-size:22px;vertical-align:super;margin-right:2px}
+.period{font-size:13px;color:var(--muted);margin-bottom:5px}
+.monthly{font-size:14px;font-weight:600;color:var(--blue);margin-bottom:24px}
+.divl{height:1px;background:var(--border);margin-bottom:20px}
+.feats{list-style:none;margin-bottom:28px}
+.feats li{font-size:13px;color:var(--slate);padding:5px 0;display:flex;gap:10px;align-items:flex-start}
+.feats li::before{content:'✓';font-size:12px;color:var(--blue);font-weight:700;flex-shrink:0;margin-top:1px}
+.plan-btn{display:block;text-align:center;font-size:14px;font-weight:600;padding:13px;border-radius:var(--radius);text-decoration:none;transition:all .2s}
+.plan-btn-outline{border:1px solid var(--border2);color:var(--slate)}
+.plan-btn-outline:hover{border-color:var(--blue);color:var(--blue)}
+.plan-btn-fill{background:var(--blue);color:#fff}
+.plan-btn-fill:hover{background:var(--blue2)}
+
+.who{padding:100px 64px;background:var(--white)}
+.wgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:48px}
+.wc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 16px;text-align:center;transition:all .2s;cursor:default}
+.wc:hover{background:var(--blue-light);border-color:var(--blue-mid);transform:translateY(-2px)}
+.wicon{width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 12px}
+.wc h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.wc p{font-size:11px;color:var(--muted);line-height:1.55}
+
+.contact{padding:100px 64px;background:var(--surface);border-top:1px solid var(--border)}
+.contact-inner{max-width:680px;margin:0 auto}
+.contact-head{text-align:center;margin-bottom:48px}
+.fwrap{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.full{grid-column:1/-1}
+.fg{display:flex;flex-direction:column;gap:6px}
+.fl{font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--slate)}
+.fi{font-family:'Inter',sans-serif;font-size:14px;padding:11px 16px;background:var(--white);color:var(--ink);border:1px solid var(--border2);border-radius:var(--radius);outline:none;transition:border-color .2s,box-shadow .2s}
+.fi:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(109,40,217,.1)}
+.fi::placeholder{color:var(--hint)}
+select.fi{cursor:pointer}select.fi option{background:var(--white)}
+textarea.fi{resize:vertical;min-height:90px}
+.sbtn{grid-column:1/-1;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;color:#fff;background:var(--blue);padding:15px;border:none;border-radius:var(--radius);cursor:pointer;transition:all .2s;margin-top:4px}
+.sbtn:hover{background:var(--blue2)}
+
+footer{background:var(--ink);padding:40px 64px;display:flex;align-items:center;justify-content:space-between}
+.f-logo{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#fff}
+.f-logo span{color:#A78BFA}
+.f-note{font-size:12px;color:rgba(255,255,255,.35)}
+.f-region{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);background:rgba(255,255,255,.06);padding:5px 12px;border-radius:20px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-left{animation:fadeUp .8s ease both}.hero-right{animation:fadeUp .8s .15s ease both}
+
+@media(max-width:1100px){
+  .rbar{padding:9px 20px}.nav-links{display:none}
+  nav{padding:0 24px;top:38px}
+  .hero{grid-template-columns:1fr;padding:120px 24px 64px}.hero-right{display:none}
+  .problem,.how,.compliance,.pricing,.who,.contact{padding:72px 24px}
+  .pwrap{grid-template-columns:1fr;gap:40px}
+  .steps,.cgrid,.plans{grid-template-columns:1fr}
+  .wgrid{grid-template-columns:repeat(2,1fr)}
+  .fwrap{grid-template-columns:1fr}
+  footer{padding:28px 24px;flex-direction:column;gap:12px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="rbar">
+  <div class="rbar-left">
+    <span class="rbar-flag">🇺🇸</span>
+    <span class="rbar-text">United States</span>
+    <div class="rbar-regs">
+      <span class="rbar-reg">HIPAA</span>
+      <span class="rbar-reg">ABA Rules</span>
+      <span class="rbar-reg">SEC / FINRA</span>
+      <span class="rbar-reg">CCPA</span>
+    </div>
+  </div>
+  <div class="rbar-right">
+    <a href="privateai_uk.html" class="rbar-link">🇬🇧 UK Version</a>
+    <a href="privateai_india.html" class="rbar-link">🇮🇳 India Version</a>
+  </div>
+</div>
+
+<nav id="nav">
+  <div class="logo">Private<span>AI</span></div>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#compliance">US Compliance</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#who">Who It's For</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#compliance" class="nav-ghost">See compliance</a>
+    <a href="#contact" class="nav-btn">Book a Free Call</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">For US Regulated Professionals</div>
+    <h1>The AI your practice can <em>actually trust.</em></h1>
+    <p class="hero-sub">PrivateAI is a plug-in desktop appliance built for US compliance — HIPAA, ABA Model Rules, SEC, FINRA. Powerful AI with zero data leaving your office.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book a Free Call</a>
+      <a href="#compliance" class="btn-secondary">See US compliance →</a>
+    </div>
+    <div class="hero-trust">
+      <span class="trust-badge">✓ HIPAA Compliant</span>
+      <span class="trust-badge">✓ No BAA Required</span>
+      <span class="trust-badge">✓ ABA Rule 1.6</span>
+      <span class="trust-badge">✓ Zero Egress</span>
+      <span class="trust-badge">✓ PHI Never Transmitted</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hcard">
+      <div class="hcard-header">
+        <span class="hcard-title">PrivateAI Pro — US</span>
+        <span class="hcard-status"><span class="hcard-led"></span>Appliance online</span>
+      </div>
+      <div class="flow-row"><div class="flow-icon fi-safe">🏛️</div><div class="flow-info"><div class="flow-name">Client &amp; patient records (PHI)</div><div class="flow-desc">Processed locally — never transmitted</div></div><span class="pill pill-safe">On-device</span></div>
+      <div class="flow-row"><div class="flow-icon fi-safe">🤖</div><div class="flow-info"><div class="flow-name">AI inference (LLaMA 3.1)</div><div class="flow-desc">Runs entirely on your hardware</div></div><span class="pill pill-safe">Zero egress</span></div>
+      <div class="flow-row"><div class="flow-icon fi-safe">📁</div><div class="flow-info"><div class="flow-name">Document Q&amp;A</div><div class="flow-desc">Ask questions on your own files</div></div><span class="pill pill-safe">Local only</span></div>
+      <div class="flow-row"><div class="flow-icon fi-block">☁️</div><div class="flow-info"><div class="flow-name">OpenAI / Microsoft / Google</div><div class="flow-desc">No connection. No data sharing.</div></div><span class="pill pill-block">Blocked</span></div>
+      <div class="hcard-foot">✓ No BAA required — PHI never leaves your premises</div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item">HIPAA Compliant</span><span class="ticker-item">No BAA Required</span>
+    <span class="ticker-item">ABA Model Rule 1.6</span><span class="ticker-item">State Bar Ethics Ready</span>
+    <span class="ticker-item">Attorney-Client Privilege</span><span class="ticker-item">SEC Reg S-P</span>
+    <span class="ticker-item">FINRA Rule 4370</span><span class="ticker-item">AICPA Standards</span>
+    <span class="ticker-item">CCPA / CPRA Safe</span><span class="ticker-item">Zero Cloud Egress</span>
+    <span class="ticker-item">No Third-Party AI</span><span class="ticker-item">PHI Never Transmitted</span>
+    <span class="ticker-item">HIPAA Compliant</span><span class="ticker-item">No BAA Required</span>
+    <span class="ticker-item">ABA Model Rule 1.6</span><span class="ticker-item">State Bar Ethics Ready</span>
+    <span class="ticker-item">Attorney-Client Privilege</span><span class="ticker-item">SEC Reg S-P</span>
+    <span class="ticker-item">FINRA Rule 4370</span><span class="ticker-item">AICPA Standards</span>
+    <span class="ticker-item">CCPA / CPRA Safe</span><span class="ticker-item">Zero Cloud Egress</span>
+    <span class="ticker-item">No Third-Party AI</span><span class="ticker-item">PHI Never Transmitted</span>
+  </div>
+</div>
+
+<section class="problem" id="problem">
+  <div class="pwrap">
+    <div class="reveal">
+      <div class="lbl">The Problem</div>
+      <h2 class="h2">US regulated professions face <em>federal and state</em> AI liability</h2>
+      <p class="sub">HIPAA, ABA Model Rules, SEC regulations, and state bar ethics opinions all create specific legal obligations around client and patient data. Cloud AI platforms were not built with these obligations in mind.</p>
+    </div>
+    <div class="pcards">
+      <div class="pc reveal"><div class="pc-num">01</div><h3>HIPAA &amp; Protected Health Information</h3><p>Using cloud AI to process PHI without a signed BAA is a direct HIPAA violation. Most AI platforms either don't offer BAAs or offer terms that don't adequately protect PHI from training data use.</p></div>
+      <div class="pc reveal"><div class="pc-num">02</div><h3>Attorney-Client Privilege &amp; ABA Ethics</h3><p>ABA Model Rule 1.6 requires attorneys to make reasonable efforts to prevent unauthorized disclosure of client information. Multiple state bar ethics opinions have flagged that using cloud AI on confidential client matter risks breaching this duty.</p></div>
+      <div class="pc reveal"><div class="pc-num">03</div><h3>SEC, FINRA &amp; Investment Adviser Rules</h3><p>SEC Regulation S-P and FINRA Rule 4370 require safeguarding non-public customer information. Using unvetted AI tools on client financial data creates regulatory exposure that compliance teams aren't adequately addressing.</p></div>
+      <div class="pc reveal"><div class="pc-num">04</div><h3>CCPA &amp; State Privacy Laws</h3><p>California, Virginia, Colorado, and a growing list of states have enacted comprehensive privacy laws. Sending client data to cloud AI creates processing relationships that may require disclosure or consent firms haven't put in place.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="reveal"><div class="lbl">The Solution</div><h2 class="h2">Plug it in. It works.<br><em>PHI never leaves your office.</em></h2><p class="sub">Ships pre-configured, hardened, and ready to use. No BAA needed. No cloud accounts. No compliance headaches for your risk team.</p></div>
+  <div class="steps">
+    <div class="step reveal"><div class="step-num">01</div><h3>We ship the appliance</h3><p>A compact desktop device arrives pre-loaded with a hardened OS, local AI models, and a polished interface. Plug into your network — live in under an hour.</p><span class="step-tag">US delivery included</span></div>
+    <div class="step reveal"><div class="step-num">02</div><h3>Your team uses it naturally</h3><p>Staff access it from any browser on your network. Draft documents, summarize case files, research precedents, analyze contracts. Full AI capability — no data leaves the building.</p><span class="step-tag">Zero training needed</span></div>
+    <div class="step reveal"><div class="step-num">03</div><h3>We keep it current</h3><p>Monthly model updates, OS security patches, remote health monitoring, and a US-based support line. You focus on clients. We handle the technology.</p><span class="step-tag">US-based support</span></div>
+  </div>
+</section>
+
+<section class="compliance" id="compliance">
+  <div class="reveal"><div class="lbl">US Compliance</div><h2 class="h2">Built for every US regulated <em>profession</em></h2><p class="sub">The zero-egress architecture directly addresses every major US federal and state regulatory framework covering professional client and patient data.</p></div>
+  <div class="cgrid">
+    <div class="cc reveal"><div class="cc-icon">⚖️</div><h3>Attorneys &amp; Law Firms</h3><p>Client matter files never leave your premises. Attorney-client privilege preserved. Document Q&A lets attorneys work through case materials without cloud exposure.</p><div class="rp"><span>ABA Model Rule 1.6</span><span>State Bar Ethics</span><span>Attorney-Client Privilege</span><span>Work Product Doctrine</span><span>Duty of Competence 1.1</span></div></div>
+    <div class="cc reveal"><div class="cc-icon">🏥</div><h3>Healthcare Providers &amp; Clinics</h3><p>PHI stays on-premises. No BAA required — we never receive, process, or transmit your patient data. HIPAA and HITECH satisfied by architecture, not paperwork.</p><div class="rp"><span>HIPAA Privacy Rule</span><span>HIPAA Security Rule</span><span>HITECH Act</span><span>No BAA Required</span><span>State Health Privacy</span></div></div>
+    <div class="cc reveal"><div class="cc-icon">💼</div><h3>Advisers, Broker-Dealers &amp; CPAs</h3><p>Client financial data and non-public information remain under your sole control. Clean compliance with SEC, FINRA, and state financial regulations.</p><div class="rp"><span>SEC Regulation S-P</span><span>FINRA Rule 4370</span><span>Investment Advisers Act</span><span>AICPA Code of Conduct</span><span>Gramm-Leach-Bliley</span></div></div>
+    <div class="cc reveal"><div class="cc-icon">🧠</div><h3>Therapists &amp; Psychologists</h3><p>Session notes are HIPAA-protected PHI. They stay on your device. Fully consistent with APA Ethics Code obligations on client confidentiality.</p><div class="rp"><span>HIPAA Privacy Rule</span><span>APA Ethics Code 4.01</span><span>State Licensing Rules</span><span>42 CFR Part 2</span></div></div>
+    <div class="cc reveal"><div class="cc-icon">🔒</div><h3>Zero-Egress Architecture</h3><p>All AI inference runs locally. No outbound data connections during operation. No BAA, DPA, or third-party vendor review required for core operation.</p><div class="rp"><span class="g">No BAA required</span><span class="g">No third-party processor</span><span class="g">Data flow diagram included</span><span class="g">SOC 2 aligned</span></div></div>
+    <div class="cc reveal"><div class="cc-icon">📋</div><h3>CCPA, VCDPA &amp; State Laws</h3><p>With no data leaving your premises, the growing web of state consumer privacy laws is addressed at the architectural level — not through legal workarounds.</p><div class="rp"><span>CCPA / CPRA</span><span>Virginia VCDPA</span><span>Colorado CPA</span><span>Connecticut CTDPA</span><span>No cross-state transfer</span></div></div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="reveal"><div class="lbl">US Pricing</div><h2 class="h2">Simple pricing. <em>No surprises.</em></h2><p class="sub">One upfront hardware cost, one monthly subscription. Cancel anytime. 90-day satisfaction guarantee on all plans.</p></div>
+  <div class="plans">
+    <div class="plan reveal">
+      <div class="plan-name">Essentials</div>
+      <div class="price"><sup>$</sup>1,999</div>
+      <div class="period">one-time hardware + setup</div>
+      <div class="monthly">+ $65 / month</div>
+      <div class="divl"></div>
+      <ul class="feats"><li>Pre-configured AI appliance</li><li>1 AI model (LLaMA 3.1 8B)</li><li>Multi-user chat interface</li><li>Monthly model updates</li><li>OS security patching</li><li>Email support (US hours)</li><li>HIPAA / ABA data flow document</li></ul>
+      <a href="#contact" class="plan-btn plan-btn-outline">Get Started</a>
+    </div>
+    <div class="plan star reveal">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-name b">Professional</div>
+      <div class="price"><sup>$</sup>2,669</div>
+      <div class="period">one-time hardware + setup</div>
+      <div class="monthly">+ $132 / month</div>
+      <div class="divl"></div>
+      <ul class="feats"><li>Everything in Essentials</li><li>2 AI models installed</li><li>Document Q&amp;A on your own files</li><li>Priority US phone support</li><li>Remote health monitoring</li><li>Staff onboarding session</li><li>Quarterly compliance review call</li></ul>
+      <a href="#contact" class="plan-btn plan-btn-fill">Get Started</a>
+    </div>
+    <div class="plan reveal">
+      <div class="plan-name">Practice</div>
+      <div class="price"><sup>$</sup>3,735</div>
+      <div class="period">one-time hardware + setup</div>
+      <div class="monthly">+ $199 / month</div>
+      <div class="divl"></div>
+      <ul class="feats"><li>Everything in Professional</li><li>GPU-accelerated unit</li><li>Unlimited users</li><li>Custom prompts per role</li><li>4-hour US support SLA</li><li>Annual on-site review</li><li>Referral credit program</li></ul>
+      <a href="#contact" class="plan-btn plan-btn-outline">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section class="who" id="who">
+  <div class="reveal"><div class="lbl">Who It's For</div><h2 class="h2">Every US profession with <em>a legal duty of confidentiality</em></h2></div>
+  <div class="wgrid">
+    <div class="wc reveal"><div class="wicon">⚖️</div><h4>Attorneys</h4><p>ABA 1.6 · State Bar · Attorney-Client Privilege</p></div>
+    <div class="wc reveal"><div class="wicon">📊</div><h4>CPAs &amp; Accountants</h4><p>AICPA Code · CPA Licensing · IRS Data</p></div>
+    <div class="wc reveal"><div class="wicon">🏥</div><h4>Healthcare Providers</h4><p>HIPAA · HITECH · No BAA Required</p></div>
+    <div class="wc reveal"><div class="wicon">💼</div><h4>Financial Advisers</h4><p>SEC Reg S-P · FINRA 4370 · GLB Act</p></div>
+    <div class="wc reveal"><div class="wicon">🧠</div><h4>Therapists</h4><p>HIPAA · APA Ethics 4.01 · State Licensing</p></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-head reveal">
+      <div class="lbl" style="text-align:center">Get in Touch</div>
+      <h2 class="h2" style="margin:0 auto 14px;text-align:center;max-width:500px">Book a free 20-minute call <em>with our US team</em></h2>
+      <p class="sub" style="text-align:center;margin:0 auto">No pitch. We'll explain how the appliance maps to your specific US regulatory obligations and tell you honestly if it's right for you.</p>
+    </div>
+    <div class="fwrap reveal">
+      <div class="fg"><label class="fl">Your Name</label><input class="fi" type="text" placeholder="Jane Smith" required></div>
+      <div class="fg"><label class="fl">Firm / Practice Name</label><input class="fi" type="text" placeholder="Smith & Associates" required></div>
+      <div class="fg"><label class="fl">Email Address</label><input class="fi" type="email" placeholder="jane@smithlaw.com" required></div>
+      <div class="fg"><label class="fl">Profession</label>
+        <select class="fi">
+          <option value="">Select your profession</option>
+          <option>Attorney / Law Firm</option>
+          <option>CPA / Accountant (AICPA)</option>
+          <option>Investment Adviser (SEC / FINRA regulated)</option>
+          <option>Broker-Dealer (FINRA member)</option>
+          <option>Healthcare Provider (HIPAA covered entity)</option>
+          <option>Therapist / Psychologist (HIPAA)</option>
+          <option>Other US regulated profession</option>
+        </select>
+      </div>
+      <div class="fg full"><label class="fl">Anything on your mind? (optional)</label><textarea class="fi" placeholder="e.g. We have 12 attorneys and need to ensure we're not creating HIPAA or ABA privilege exposure..."></textarea></div>
+      <button class="sbtn" onclick="this.textContent='✓ Request sent — our US team will be in touch within 24 hours';this.style.background='#059669';this.disabled=true">Request a Call →</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-logo">Private<span>AI</span></div>
+  <div class="f-region">🇺🇸 United States</div>
+  <div class="f-note">© 2025 PrivateAI — Client data stays on your premises. Always.</div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.07+'s';io.observe(el)});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth'})}));
+</script>
+</body>
+</html>
