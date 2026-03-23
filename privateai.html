@@ -200,7 +200,7 @@ nav{
 .comp-cell:nth-child(3){border-radius:0 18px 0 0}
 .comp-cell:nth-child(4){border-radius:0 0 0 18px}
 .comp-cell:last-child{border-radius:0 0 18px 0}
-.cc-emoji{font-size:28px;margin-bottom:16px}
+.cc-emoji{width:44px;height:44px;border-radius:12px;background:rgba(41,151,255,.08);border:0.5px solid rgba(41,151,255,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
 .cc-h{font-size:17px;font-weight:600;color:var(--white);letter-spacing:-.015em;margin-bottom:10px}
 .cc-p{font-size:14px;color:#86868B;line-height:1.65;margin-bottom:16px}
 .cc-regs{display:flex;flex-wrap:wrap;gap:6px}
@@ -231,7 +231,8 @@ nav{
   transition:background .2s,border-color .2s,transform .2s;cursor:default;
 }
 .wc:hover{background:#1a1a1a;border-color:rgba(41,151,255,.3);transform:translateY(-4px)}
-.wc-icon{font-size:28px;margin-bottom:14px}
+.wc-icon{width:52px;height:52px;border-radius:14px;background:rgba(255,255,255,.06);border:0.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;color:#86868B;transition:all .2s}
+.wc:hover .wc-icon{background:rgba(41,151,255,.12);border-color:rgba(41,151,255,.25);color:var(--blue)}
 .wc h4{font-size:14px;font-weight:600;color:var(--white);margin-bottom:6px;letter-spacing:-.01em}
 .wc p{font-size:12px;color:#86868B;line-height:1.55}
 
@@ -330,7 +331,7 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">&#xF8FF; PrivateAI</div>
+  <div class="nav-logo">PrivateAI</div>
   <ul class="nav-links">
     <li><a href="#feat1">Overview</a></li>
     <li><a href="#compliance">Compliance</a></li>
@@ -487,25 +488,25 @@ footer{
   </div>
   <div class="comp-grid">
     <div class="comp-cell reveal">
-      <div class="cc-emoji">⚖️</div>
+      <div class="cc-emoji"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2997FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h20M4 10h20M14 4L4 10h20L14 4z"/><line x1="6" y1="10" x2="6" y2="22"/><line x1="11" y1="10" x2="11" y2="22"/><line x1="17" y1="10" x2="17" y2="22"/><line x1="22" y1="10" x2="22" y2="22"/></svg></div>
       <div class="cc-h">Attorneys &amp; Law Firms</div>
       <div class="cc-p">Client matter files never leave your premises. Privilege preserved. Document Q&A lets attorneys interrogate case materials without cloud exposure.</div>
       <div class="cc-regs"><span class="cc-reg">ABA Rule 1.6</span><span class="cc-reg">State Bar Ethics</span><span class="cc-reg">Attorney-Client Privilege</span><span class="cc-reg">Work Product</span></div>
     </div>
     <div class="comp-cell reveal">
-      <div class="cc-emoji">🏥</div>
+      <div class="cc-emoji"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2997FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 9v10M9 14h10"/></svg></div>
       <div class="cc-h">Healthcare Providers</div>
       <div class="cc-p">PHI stays on-premises. No BAA required — we never receive, process, or transmit your patient data. HIPAA satisfied by architecture.</div>
       <div class="cc-regs"><span class="cc-reg">HIPAA Privacy Rule</span><span class="cc-reg">HIPAA Security Rule</span><span class="cc-reg">HITECH Act</span><span class="cc-reg g">No BAA Required</span></div>
     </div>
     <div class="comp-cell reveal">
-      <div class="cc-emoji">💼</div>
+      <div class="cc-emoji"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2997FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,20 9,13 14,16 22,7"/><polyline points="17,7 22,7 22,12"/></svg></div>
       <div class="cc-h">Advisers &amp; CPAs</div>
       <div class="cc-p">Client financial data and non-public information remain under your sole control. Clean compliance with SEC and FINRA data requirements.</div>
       <div class="cc-regs"><span class="cc-reg">SEC Reg S-P</span><span class="cc-reg">FINRA Rule 4370</span><span class="cc-reg">AICPA Code</span><span class="cc-reg">Gramm-Leach-Bliley</span></div>
     </div>
     <div class="comp-cell reveal">
-      <div class="cc-emoji">🧠</div>
+      <div class="cc-emoji"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2997FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h20v13a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/><path d="M10 25l4-4 4 4"/><line x1="9" y1="11" x2="19" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div>
       <div class="cc-h">Therapists &amp; Psychologists</div>
       <div class="cc-p">Session notes are HIPAA-protected PHI. They stay on your device. Fully consistent with APA Ethics Code on client confidentiality.</div>
       <div class="cc-regs"><span class="cc-reg">HIPAA Privacy Rule</span><span class="cc-reg">APA Ethics 4.01</span><span class="cc-reg">State Licensing</span><span class="cc-reg">42 CFR Part 2</span></div>
@@ -517,7 +518,7 @@ footer{
       <div class="cc-regs"><span class="cc-reg g">No third-party processor</span><span class="cc-reg g">Data flow diagram</span><span class="cc-reg g">SOC 2 aligned</span></div>
     </div>
     <div class="comp-cell reveal">
-      <div class="cc-emoji">📋</div>
+      <div class="cc-emoji"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#2997FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="20" height="22" rx="2"/><line x1="9" y1="9" x2="19" y2="9"/><line x1="9" y1="13" x2="19" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/><circle cx="19" cy="20" r="3"/><line x1="21.5" y1="22.5" x2="24" y2="25"/></svg></div>
       <div class="cc-h">State Privacy Laws</div>
       <div class="cc-p">With no data leaving your premises, CCPA, VCDPA, and the growing web of state consumer privacy laws are addressed at the architectural level.</div>
       <div class="cc-regs"><span class="cc-reg">CCPA / CPRA</span><span class="cc-reg">Virginia VCDPA</span><span class="cc-reg">Colorado CPA</span><span class="cc-reg">Connecticut CTDPA</span></div>
@@ -530,11 +531,11 @@ footer{
   <h2 class="reveal">Who it's for.</h2>
   <p class="reveal">Any US profession with a legal duty of confidentiality and a regulator who cares about how data is handled.</p>
   <div class="who-grid">
-    <div class="wc reveal"><div class="wc-icon">⚖️</div><h4>Attorneys</h4><p>ABA 1.6 · State Bar · Privilege</p></div>
-    <div class="wc reveal"><div class="wc-icon">📊</div><h4>CPAs</h4><p>AICPA · CPA Licensing · IRS</p></div>
-    <div class="wc reveal"><div class="wc-icon">🏥</div><h4>Healthcare</h4><p>HIPAA · HITECH · No BAA</p></div>
-    <div class="wc reveal"><div class="wc-icon">💼</div><h4>Advisers</h4><p>SEC · FINRA · GLB Act</p></div>
-    <div class="wc reveal"><div class="wc-icon">🧠</div><h4>Therapists</h4><p>HIPAA · APA Ethics · State</p></div>
+    <div class="wc reveal"><div class="wc-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h20M4 10h20M14 4L4 10h20L14 4z"/><line x1="6" y1="10" x2="6" y2="22"/><line x1="11" y1="10" x2="11" y2="22"/><line x1="17" y1="10" x2="17" y2="22"/><line x1="22" y1="10" x2="22" y2="22"/></svg></div><h4>Attorneys</h4><p>ABA 1.6 · State Bar · Privilege</p></div>
+    <div class="wc reveal"><div class="wc-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="20" height="22" rx="2"/><line x1="9" y1="9" x2="19" y2="9"/><line x1="9" y1="13" x2="19" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/><circle cx="19" cy="20" r="3"/><line x1="21.5" y1="22.5" x2="24" y2="25"/></svg></div><h4>CPAs</h4><p>AICPA · CPA Licensing · IRS</p></div>
+    <div class="wc reveal"><div class="wc-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 9v10M9 14h10"/></svg></div><h4>Healthcare</h4><p>HIPAA · HITECH · No BAA</p></div>
+    <div class="wc reveal"><div class="wc-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3,20 9,13 14,16 22,7"/><polyline points="17,7 22,7 22,12"/></svg></div><h4>Advisers</h4><p>SEC · FINRA · GLB Act</p></div>
+    <div class="wc reveal"><div class="wc-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h20v13a2 2 0 01-2 2H6a2 2 0 01-2-2V6z"/><path d="M10 25l4-4 4 4"/><line x1="9" y1="11" x2="19" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div><h4>Therapists</h4><p>HIPAA · APA Ethics · State</p></div>
   </div>
 </section>
 
@@ -568,7 +569,7 @@ footer{
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
-    <div class="f-logo">&#xF8FF; PrivateAI</div>
+    <div class="f-logo">PrivateAI</div>
     <div class="f-links">
       <a href="#feat1">Overview</a>
       <a href="#compliance">Compliance</a>
